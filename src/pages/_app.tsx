@@ -1,0 +1,56 @@
+import type { AppProps } from "next/app";
+import { MantineProvider, MantineThemeOverride } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
+import { appWithTranslation } from "next-i18next";
+import "../styles/globals.css";
+
+const theme: MantineThemeOverride = {
+  fontFamily: "Roboto, sans-serif",
+  defaultRadius: "sm",
+  colors: {
+    blue: [
+      "#b2b9e1",
+      "#9fa8da",
+      "#8c97d3",
+      "#7985cb",
+      "#6574c4",
+      "#5262bc",
+      "#3f51b5",
+      "#3949a3",
+      "#324191",
+      "#2c397f",
+    ],
+    white: [
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+    ],
+  },
+  primaryColor: "blue",
+  headings: {
+    fontFamily: "Roboto, sans-serif",
+    sizes: {
+      h1: { fontSize: "1.5rem", lineHeight: "2rem" },
+      h2: { fontSize: "1.25rem", lineHeight: "1.75rem" },
+    },
+  },
+};
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <NotificationsProvider>
+        <Component {...pageProps} />
+      </NotificationsProvider>
+    </MantineProvider>
+  );
+}
+
+export default appWithTranslation(App);

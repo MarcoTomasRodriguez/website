@@ -1,0 +1,100 @@
+{
+  "about": {
+    "introduction": "Hallo! Herzlich willkommen, ich bin Marco Tomás Rodríguez",
+    "profession": "Softwareentwickler"
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "content": [
+      {
+        "years": "Oct 2020 - Present",
+        "title": "Backend Software Engineer",
+        "company": "BlueSensor",
+        "logo": "/img/bluesensor-logo.png",
+        "points": [
+          "Engineered IoT solutions for the aquaculture industry.",
+          "Improved the backend system's reliability by applying consistent design patterns, increasing test coverage, and writing meaningful documentation.",
+          "Designed and implemented a real-time event-driven architecture.",
+          "Assisted firmware and frontend development teams to troubleshoot issues and propose solutions.",
+          "Collaborated with teams from other companies to integrate with external services.",
+          "Deployed and monitored backend infrastructure in AWS."
+        ],
+        "badges": [
+          { "text": "Javascript", "color": "yellow" },
+          { "text": "Node.js", "color": "green" },
+          { "text": "Nest.js", "color": "red" },
+          { "text": "MongoDB", "color": "green" },
+          { "text": "MQTT", "color": "green" },
+          { "text": "Kafka", "color": "red" },
+          { "text": "Docker", "color": "blue" }
+        ]
+      },
+      {
+        "years": "Feb 2020 - Present",
+        "title": "Software Consultant",
+        "company": "Independent",
+        "badges": [
+          { "text": "Spring Boot", "color": "green" },
+          { "text": "Java", "color": "red" },
+          { "text": "Kotlin", "color": "blue" },
+          { "text": "Scala", "color": "red" },
+          { "text": "React.js", "color": "blue" },
+          { "text": "Next.js", "color": "gray" },
+          { "text": "PostgreSQL", "color": "blue" },
+          { "text": "Redis", "color": "red" },
+          { "text": "Docker", "color": "blue" },
+          { "text": "Kubernetes", "color": "blue" }
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projekte",
+    "content": [
+      {
+        "title": "hget",
+        "repositoryUrl": "https://github.com/MarcoTomasRodriguez/hget",
+        "description": "Interruptible and resumable download accelerator.",
+        "badges": [{ "text": "Golang", "color": "blue" }]
+      },
+      {
+        "title": "eprinter",
+        "repositoryUrl": "https://github.com/MarcoTomasRodriguez/eprinter",
+        "description": "Automatic email attachment printer.",
+        "badges": [
+          { "text": "Golang", "color": "blue" },
+          { "text": "Gmail API", "color": "red" },
+          { "text": "Line Printer Daemon Protocol", "color": "gray" }
+        ]
+      }
+    ]
+  },
+  "articles": {
+    "title": "Artikel"
+  },
+  "languages": {
+    "title": "Sprachen",
+    "content": [
+      {
+        "language": "Spanisch",
+        "level": "Muttersprache"
+      },
+      {
+        "language": "Englisch",
+        "level": "Kompetente Sprachverwendung - C2"
+      },
+      {
+        "language": "Deutsch",
+        "level": "Selbstständige Sprachverwendung - B2"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kontaktiere mich",
+    "body": "Sie können mich gerne via unten stehendem Kontaktformular oder durch eine andere unten aufgeführten Methode kontaktieren.",
+    "nameLabel": "Name",
+    "emailLabel": "E-Mail-Adresse",
+    "messageLabel": "Nachrichtentext",
+    "sendButton": "Senden"
+  }
+}
