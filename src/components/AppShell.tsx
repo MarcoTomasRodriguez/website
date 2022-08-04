@@ -1,7 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
 
 type LayoutProps = {
   title: string;
