@@ -128,20 +128,20 @@ const Home: NextPage = () => {
           <Title order={1}>Professional Experience</Title>
           <Space h="md" />
           <Stack>
-            <Card shadow="md" sx={{ padding: "1.25rem" }}>
-              <Group>
+            <Card shadow="md" p={24}>
+              <Group spacing={16} mb={8}>
                 <Image
-                  width={56}
-                  height={56}
+                  width={64}
+                  height={64}
                   radius="sm"
                   src="https://www.marcotomasrodriguez.com/_next/image?url=%2Fimg%2Fbluesensor-logo.png&w=3840&q=75"
                 />
                 <div>
                   <Title order={2}>Software Engineer</Title>
-                  <Text size="xs" weight={700}>
+                  <Text size="sm" weight={700}>
                     BlueSensor
                   </Text>
-                  <Text size="xs" weight={700}>
+                  <Text size="sm" weight={700}>
                     Oct 2020 - Present
                   </Text>
                 </div>
@@ -149,27 +149,32 @@ const Home: NextPage = () => {
               <List withPadding>
                 <List.Item>Test</List.Item>
               </List>
-              <Badge color="yellow">Javascript</Badge>
+              <Group spacing={6} mt={12}>
+                <Badge color="yellow">Javascript</Badge>
+                <Badge color="green">MongoDB</Badge>
+              </Group>
             </Card>
           </Stack>
         </Box>
-        <Divider />
+        <Divider size="sm" mt={28} mb={28} />
         <Box id="projects">
           <Title order={1}>Projects</Title>
           <Space h="md" />
           <Stack>
-            <Card shadow="sm">
-              <Title order={2}>Kubernetes</Title>
+            <Card shadow="sm" p={24}>
+              <Title mb={4} order={2}>
+                Kubernetes
+              </Title>
               <Text>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Reiciendis adipisci similique eos enim quis sapiente nulla,
                 vitae quam necessitatibus mollitia odio et, eligendi eius non
                 illo dolorem corrupti doloribus qui.
               </Text>
-              <Badge color="cyan">Go</Badge>
-              <Space h="sm" />
-              <Divider />
-              <Space h="sm" />
+              <Group spacing={6} mt={12}>
+                <Badge color="cyan">Go</Badge>
+              </Group>
+              <Divider mt={12} mb={12} />
               <Link href="google.com" passHref={true}>
                 <Text weight={700} component="a">
                   Go to repository
@@ -178,12 +183,14 @@ const Home: NextPage = () => {
             </Card>
           </Stack>
         </Box>
-        <Divider />
+        <Divider size="sm" mt={28} mb={28} />
         <Box id="languages">
           <Title order={1}>Languages</Title>
           <Stack>
-            <Card shadow="sm">
-              <Title order={2}>German</Title>
+            <Card shadow="sm" p={24}>
+              <Title order={2} mb={4}>
+                German
+              </Title>
               <Text>Upper Intermediate</Text>
             </Card>
           </Stack>
@@ -191,29 +198,48 @@ const Home: NextPage = () => {
         <Box sx={{ padding: "2rem" }}>
           <Grid>
             <Grid.Col span={7}>
-              <Center sx={{ height: "100vh" }}>
+              <Center sx={{ height: "90vh" }}>
                 <Stack>
                   <Title order={2} align="center">
                     {t("contact.title")}
                   </Title>
                   <Text align="center">{t("contact.body")}</Text>
                   <Group position="center" align="center">
-                    <ActionIcon>
-                      <IconBrandGithub />
-                    </ActionIcon>
-                    <ActionIcon>
-                      <IconBrandLinkedin />
-                    </ActionIcon>
-                    <ActionIcon>
-                      <IconMail />
-                    </ActionIcon>
+                    <Link
+                      href="https://github.com/MarcoTomasRodriguez"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Visit GitHub profile"
+                    >
+                      <ActionIcon>
+                        <IconBrandGithub />
+                      </ActionIcon>
+                    </Link>
+                    <Link
+                      href="https://www.linkedin.com/in/marcotomasrodriguez"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Visit LinkedIn profile"
+                    >
+                      <ActionIcon>
+                        <IconBrandLinkedin />
+                      </ActionIcon>
+                    </Link>
+                    <Link
+                      href="mailto:marcotomasrodriguez@gmail.com"
+                      aria-label="Send email"
+                    >
+                      <ActionIcon>
+                        <IconMail />
+                      </ActionIcon>
+                    </Link>
                   </Group>
                 </Stack>
               </Center>
             </Grid.Col>
             <Grid.Col span={5}>
               <form onSubmit={form.onSubmit(sendEmail)}>
-                <Center sx={{ height: "100vh", width: "100%" }}>
+                <Center sx={{ height: "90vh", width: "100%" }}>
                   <Stack sx={{ width: "100%", padding: "2rem" }}>
                     <TextInput
                       label="Name"
