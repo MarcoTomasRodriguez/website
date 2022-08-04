@@ -106,27 +106,29 @@ const Home: NextPage = () => {
               )}
             </Title>
           </Stack>
-          <ActionIcon
-            sx={{
-              position: "absolute",
-              left: "50%",
-              right: "50%",
-              bottom: "2.5rem",
-              marginLeft: "-0.75rem",
-            }}
-            className="animate-bounce"
-            size="xl"
-            color="white"
-            variant="transparent"
-          >
-            <IconArrowDown />
-          </ActionIcon>
+          <Link href="#experience">
+            <ActionIcon
+              sx={{
+                position: "absolute",
+                left: "50%",
+                right: "50%",
+                bottom: "2.5rem",
+                marginLeft: "-0.75rem",
+              }}
+              className="animate-bounce"
+              size="xl"
+              color="white"
+              variant="transparent"
+            >
+              <IconArrowDown />
+            </ActionIcon>
+          </Link>
         </Center>
       </Box>
-      <Stack sx={{ padding: "2rem" }}>
-        <Box id="experience">
-          <Title order={1}>Professional Experience</Title>
-          <Space h="md" />
+      <Stack sx={{ padding: "2rem" }} id="experience">
+        <Box>
+          <Title order={2}>Professional Experience</Title>
+          <Space h="xl" />
           <Stack>
             <Card shadow="md" p={24}>
               <Group spacing={16} mb={8}>
@@ -137,13 +139,9 @@ const Home: NextPage = () => {
                   src="https://www.marcotomasrodriguez.com/_next/image?url=%2Fimg%2Fbluesensor-logo.png&w=3840&q=75"
                 />
                 <div>
-                  <Title order={2}>Software Engineer</Title>
-                  <Text size="sm" weight={700}>
-                    BlueSensor
-                  </Text>
-                  <Text size="sm" weight={700}>
-                    Oct 2020 - Present
-                  </Text>
+                  <Title order={3}>Software Engineer</Title>
+                  <Text size="sm">BlueSensor</Text>
+                  <Text size="sm">Oct 2020 - Present</Text>
                 </div>
               </Group>
               <List withPadding>
@@ -156,13 +154,13 @@ const Home: NextPage = () => {
             </Card>
           </Stack>
         </Box>
-        <Divider size="sm" mt={28} mb={28} />
-        <Box id="projects">
-          <Title order={1}>Projects</Title>
-          <Space h="md" />
+        <Divider id="projects" size="sm" mt={28} mb={28} />
+        <Box>
+          <Title order={2}>Projects</Title>
+          <Space h="xl" />
           <Stack>
             <Card shadow="sm" p={24}>
-              <Title mb={4} order={2}>
+              <Title order={3} mb={4}>
                 Kubernetes
               </Title>
               <Text>
@@ -183,12 +181,13 @@ const Home: NextPage = () => {
             </Card>
           </Stack>
         </Box>
-        <Divider size="sm" mt={28} mb={28} />
-        <Box id="languages">
-          <Title order={1}>Languages</Title>
+        <Divider id="languages" size="sm" mt={28} mb={28} />
+        <Box>
+          <Title order={2}>Languages</Title>
+          <Space h="xl" />
           <Stack>
             <Card shadow="sm" p={24}>
-              <Title order={2} mb={4}>
+              <Title order={3} mb={4}>
                 German
               </Title>
               <Text>Upper Intermediate</Text>
