@@ -7,7 +7,6 @@ import {
   MailIcon,
   TranslateIcon,
   UserIcon,
-  NewspaperIcon,
   SpeakerphoneIcon,
 } from "@heroicons/react/solid";
 import useScrollableHide from "../hooks/useScrollableHide";
@@ -52,7 +51,6 @@ const Header = () => {
     { title: t("header.about"), url: "#about", icon: UserIcon },
     { title: t("header.experience"), url: "#experience", icon: BriefcaseIcon },
     { title: t("header.projects"), url: "#projects", icon: CodeIcon },
-    { title: t("header.articles"), url: "#articles", icon: NewspaperIcon },
     { title: t("header.languages"), url: "#languages", icon: SpeakerphoneIcon },
     { title: t("header.contact"), url: "#contact", icon: MailIcon },
   ];
