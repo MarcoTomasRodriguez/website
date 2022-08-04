@@ -36,6 +36,12 @@ import AppShell from "../components/AppShell";
 import Header from "../components/Header";
 import Typewriter from "../components/Typewriter";
 
+type EmailForm = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 const Home: NextPage = () => {
   const { t } = useTranslation("index");
 
@@ -46,32 +52,39 @@ const Home: NextPage = () => {
     setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 100);
   }, [t]);
 
-  const form = useForm({
+  const form = useForm<EmailForm>({
     initialValues: {
       email: "",
       name: "",
       message: "",
     },
-
     validate: {
       email: (value: string) =>
         /^\S+@\S+$/.test(value) ? null : "Invalid email",
     },
   });
 
-  const sendEmail = () => {
-    showNotification({
-      title: "Test",
-      message: "Test",
-      icon: <IconCheck size={18} />,
-      color: "teal",
+  const sendEmail = async ({ name, email, message }: EmailForm) => {
+    const response = await fetch("https://formspree.io/f/myybqbdp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, _replyto: email, message }),
     });
 
+    if (!response.ok) {
+      showNotification({
+        title: "Error",
+        message: "Could not send email",
+        icon: <IconX size={18} />,
+        color: "red",
+      });
+    }
+
     showNotification({
-      title: "Test",
-      message: "Test",
-      icon: <IconX size={18} />,
-      color: "red",
+      title: "Success",
+      message: "Email sent",
+      icon: <IconCheck size={18} />,
+      color: "teal",
     });
   };
 
