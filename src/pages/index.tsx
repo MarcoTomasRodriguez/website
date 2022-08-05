@@ -27,11 +27,11 @@ import {
 } from "@tabler/icons";
 import type { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { showNotification } from "@mantine/notifications";
 import { useForm } from "@mantine/form";
+import Link from "next/link";
 import AppShell from "../components/AppShell";
 import Header from "../components/Header";
 import Typewriter from "../components/Typewriter";

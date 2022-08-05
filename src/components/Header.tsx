@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-import { Center, Group, Menu, Transition } from "@mantine/core";
+import { Center, Group, MediaQuery, Menu, Transition } from "@mantine/core";
 import {
   BriefcaseIcon,
   CodeIcon,
@@ -73,16 +73,44 @@ const Header = () => {
                   passHref
                   aria-label={`Scroll to ${title}`}
                 >
-                  <CustomButton
-                  // leftIcon={
-                  //  <Icon width={20} height={20} viewBox="0 0 20 20" />
-                  // }
-                  >
-                    {title}
+                  <CustomButton>
+                    <MediaQuery
+                      smallerThan="md"
+                      styles={{ visibility: "hidden", position: "absolute" }}
+                    >
+                      <span>{title}</span>
+                    </MediaQuery>
+                    <MediaQuery
+                      largerThan="sm"
+                      styles={{ visibility: "hidden", width: 0, height: 0 }}
+                    >
+                      <Icon width={20} height={20} viewBox="0 0 20 20" />
+                    </MediaQuery>
                   </CustomButton>
                 </Link>
               ))}
-              <Menu control={<CustomButton>Change Language</CustomButton>}>
+              <Menu
+                control={
+                  <CustomButton>
+                    <MediaQuery
+                      smallerThan="md"
+                      styles={{ visibility: "hidden", position: "absolute" }}
+                    >
+                      <span>Change Language</span>
+                    </MediaQuery>
+                    <MediaQuery
+                      largerThan="sm"
+                      styles={{ visibility: "hidden", width: 0, height: 0 }}
+                    >
+                      <TranslateIcon
+                        width={20}
+                        height={20}
+                        viewBox="0 0 20 20"
+                      />
+                    </MediaQuery>
+                  </CustomButton>
+                }
+              >
                 {languages.map((lang, index) => (
                   <Menu.Item
                     key={index}
