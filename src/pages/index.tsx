@@ -36,13 +36,46 @@ import AppShell from "../components/AppShell";
 import Header from "../components/Header";
 import Typewriter from "../components/Typewriter";
 
+type Badge = {
+  text: string;
+  color: "red" | "green" | "blue" | "gray" | "yellow";
+};
+
+type Experience = {
+  title: string;
+  company: string;
+  years: string;
+  points?: string[];
+  logo?: string;
+  badges: Badge[];
+};
+
+type Project = {
+  title: string;
+  description: string;
+  websiteUrl?: string;
+  repositoryUrl?: string;
+  badges: Badge[];
+};
+
+type Language = {
+  language: string;
+  level: string;
+};
+
 type EmailForm = {
   name: string;
   email: string;
   message: string;
 };
 
-const Home: NextPage = () => {
+type HomeProps = {
+  experience: Experience[];
+  projects: Project[];
+  languages: Language[];
+};
+
+const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
   const { t } = useTranslation("index");
 
   const [displayProfession, setDisplayProfession] = useState(false);
@@ -94,7 +127,10 @@ const Home: NextPage = () => {
       description="Website"
       header={<Header />}
     >
-      <Box sx={{ backgroundColor: "#3f51b5", height: "100vh", width: "100vw" }}>
+      <Box
+        id="about"
+        sx={{ backgroundColor: "#3f51b5", height: "100vh", width: "100vw" }}
+      >
         <Center sx={{ height: "100vh", color: "#fff" }}>
           <Stack>
             <Title order={1} align="center">
@@ -125,76 +161,100 @@ const Home: NextPage = () => {
           </Link>
         </Center>
       </Box>
-      <Stack sx={{ padding: "2rem" }} id="experience">
+      <Stack id="experience" sx={{ padding: "2rem" }}>
         <Box>
-          <Title order={2}>Professional Experience</Title>
+          <Title order={2}>{t("experience.title")}</Title>
           <Space h="xl" />
           <Stack>
-            <Card shadow="md" p={24}>
-              <Group spacing={16} mb={8}>
-                <Image
-                  width={64}
-                  height={64}
-                  radius="sm"
-                  src="https://www.marcotomasrodriguez.com/_next/image?url=%2Fimg%2Fbluesensor-logo.png&w=3840&q=75"
-                />
-                <div>
-                  <Title order={3}>Software Engineer</Title>
-                  <Text size="sm">BlueSensor</Text>
-                  <Text size="sm">Oct 2020 - Present</Text>
-                </div>
-              </Group>
-              <List withPadding>
-                <List.Item>Test</List.Item>
-              </List>
-              <Group spacing={6} mt={12}>
-                <Badge color="yellow">Javascript</Badge>
-                <Badge color="green">MongoDB</Badge>
-              </Group>
-            </Card>
+            {experience.map((experience, index) => (
+              <Card key={index} shadow="md" p={24}>
+                <Group spacing={16} mb={8}>
+                  <Image
+                    width={64}
+                    height={64}
+                    radius="sm"
+                    src={experience.logo || "/img/default-company.png"}
+                    alt={`${experience.company} logo`}
+                  />
+                  <div>
+                    <Title order={3}>{experience.title}</Title>
+                    <Text size="sm">{experience.company}</Text>
+                    <Text size="sm">{experience.years}</Text>
+                  </div>
+                </Group>
+                <List ml={8}>
+                  {experience.points?.map((point, index) => (
+                    <List.Item key={index}>{point}</List.Item>
+                  ))}
+                </List>
+                <Group spacing={6} mt={12}>
+                  {experience.badges.map((badge, index) => (
+                    <Badge key={index} color={badge.color}>
+                      {badge.text}
+                    </Badge>
+                  ))}
+                </Group>
+              </Card>
+            ))}
           </Stack>
         </Box>
         <Divider id="projects" size="sm" mt={28} mb={28} />
         <Box>
-          <Title order={2}>Projects</Title>
+          <Title order={2}>{t("projects.title")}</Title>
           <Space h="xl" />
           <Stack>
-            <Card shadow="sm" p={24}>
-              <Title order={3} mb={4}>
-                Kubernetes
-              </Title>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Reiciendis adipisci similique eos enim quis sapiente nulla,
-                vitae quam necessitatibus mollitia odio et, eligendi eius non
-                illo dolorem corrupti doloribus qui.
-              </Text>
-              <Group spacing={6} mt={12}>
-                <Badge color="cyan">Go</Badge>
-              </Group>
-              <Divider mt={12} mb={12} />
-              <Link href="google.com" passHref={true}>
-                <Text weight={700} component="a">
-                  Go to repository
-                </Text>
-              </Link>
-            </Card>
+            {projects.map((project, index) => (
+              <Card shadow="sm" p={24}>
+                <Title order={3} mb={4}>
+                  {project.title}
+                </Title>
+                <Text>{project.description}</Text>
+                <Group spacing={6} mt={12}>
+                  {project.badges.map((badge, index) => (
+                    <Badge color={badge.color}>{badge.text}</Badge>
+                  ))}
+                </Group>
+                {(project.websiteUrl || project.repositoryUrl) && (
+                  <>
+                    <Divider mt={12} mb={12} />
+                    <Group>
+                      {project.websiteUrl && (
+                        <Link href={project.websiteUrl} passHref={true}>
+                          <Text size="sm" weight={700} component="a">
+                            Website
+                          </Text>
+                        </Link>
+                      )}
+                      {project.repositoryUrl && (
+                        <Link href={project.repositoryUrl} passHref={true}>
+                          <Text size="sm" weight={700} component="a">
+                            Repository
+                          </Text>
+                        </Link>
+                      )}
+                    </Group>
+                  </>
+                )}
+              </Card>
+            ))}
           </Stack>
         </Box>
         <Divider id="languages" size="sm" mt={28} mb={28} />
         <Box>
-          <Title order={2}>Languages</Title>
+          <Title order={2}>{t("languages.title")}</Title>
           <Space h="xl" />
           <Stack>
-            <Card shadow="sm" p={24}>
-              <Title order={3} mb={4}>
-                German
-              </Title>
-              <Text>Upper Intermediate</Text>
-            </Card>
+            {languages.map((language, index) => (
+              <Card key={index} shadow="sm" p={24}>
+                <Title order={3} mb={4}>
+                  {language.language}
+                </Title>
+                <Text>{language.level}</Text>
+              </Card>
+            ))}
           </Stack>
         </Box>
-        <Box sx={{ padding: "2rem" }}>
+        <Box id="contact" sx={{ padding: "2rem" }}>
           <Grid>
             <Grid.Col span={7}>
               <Center sx={{ height: "90vh" }}>
@@ -272,9 +332,18 @@ const Home: NextPage = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = "en" }) => {
+  const translations = await (
+    await fetch(
+      `https://www.marcotomasrodriguez.com/locales/${locale}/index.json`
+    )
+  ).json();
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "index"])),
+      experience: translations.experience.content || [],
+      projects: translations.projects.content || [],
+      languages: translations.languages.content || [],
     },
   };
 };

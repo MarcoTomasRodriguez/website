@@ -82,7 +82,7 @@ const Header = () => {
                   </CustomButton>
                 </Link>
               ))}
-              <Menu>
+              <Menu control={<CustomButton>Change Language</CustomButton>}>
                 {languages.map((lang, index) => (
                   <Menu.Item
                     key={index}
