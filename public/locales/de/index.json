@@ -35,8 +35,8 @@
         "company": "Independent",
         "badges": [
           { "text": "Spring Boot", "color": "green" },
-          { "text": "Java", "color": "red" },
-          { "text": "Kotlin", "color": "blue" },
+          { "text": "Java", "color": "orange" },
+          { "text": "Kotlin", "color": "cyan" },
           { "text": "Scala", "color": "red" },
           { "text": "React.js", "color": "blue" },
           { "text": "Next.js", "color": "gray" },

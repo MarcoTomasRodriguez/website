@@ -10,6 +10,7 @@ import {
   Group,
   Image,
   List,
+  MantineColor,
   Space,
   Stack,
   Text,
@@ -38,7 +39,7 @@ import Typewriter from "../components/Typewriter";
 
 type Badge = {
   text: string;
-  color: "red" | "green" | "blue" | "gray" | "yellow";
+  color: MantineColor;
 };
 
 type Experience = {
@@ -92,8 +93,11 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
       message: "",
     },
     validate: {
+      name: (value: string) => (value.length > 2 ? null : "Invalid name"),
       email: (value: string) =>
         /^\S+@\S+$/.test(value) ? null : "Invalid email",
+      message: (value: string) =>
+        value.length > 10 ? null : "Invalid message",
     },
   });
 
@@ -111,6 +115,7 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
         icon: <IconX size={18} />,
         color: "red",
       });
+      return;
     }
 
     showNotification({
@@ -119,6 +124,7 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
       icon: <IconCheck size={18} />,
       color: "teal",
     });
+    form.reset();
   };
 
   return (
@@ -189,7 +195,7 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
                 </List>
                 <Group spacing={6} mt={12}>
                   {experience.badges.map((badge, index) => (
-                    <Badge key={index} color={badge.color}>
+                    <Badge key={index} variant="outline" color={badge.color}>
                       {badge.text}
                     </Badge>
                   ))}
@@ -211,7 +217,9 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
                 <Text>{project.description}</Text>
                 <Group spacing={6} mt={12}>
                   {project.badges.map((badge, index) => (
-                    <Badge color={badge.color}>{badge.text}</Badge>
+                    <Badge variant="outline" color={badge.color}>
+                      {badge.text}
+                    </Badge>
                   ))}
                 </Group>
                 {(project.websiteUrl || project.repositoryUrl) && (
@@ -256,8 +264,8 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
         </Box>
         <Box id="contact" sx={{ padding: "2rem" }}>
           <Grid>
-            <Grid.Col span={7}>
-              <Center sx={{ height: "90vh" }}>
+            <Grid.Col sm={12} md={7}>
+              <Center sx={{ height: "100%", padding: "1rem" }}>
                 <Stack>
                   <Title order={2} align="center">
                     {t("contact.title")}
@@ -296,32 +304,30 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
                 </Stack>
               </Center>
             </Grid.Col>
-            <Grid.Col span={5}>
+            <Grid.Col sm={12} md={5}>
               <form onSubmit={form.onSubmit(sendEmail)}>
-                <Center sx={{ height: "90vh", width: "100%" }}>
-                  <Stack sx={{ width: "100%", padding: "2rem" }}>
-                    <TextInput
-                      label="Name"
-                      placeholder="Aspen Collins"
-                      {...form.getInputProps("name")}
-                    />
-                    <TextInput
-                      label="Email"
-                      placeholder="aspen@enterprise.com"
-                      {...form.getInputProps("email")}
-                    />
-                    <Textarea
-                      label="Message"
-                      placeholder="Your message"
-                      minRows={9}
-                      maxRows={9}
-                      {...form.getInputProps("message")}
-                    />
-                    <Button color="blue" variant="filled" type="submit">
-                      Submit
-                    </Button>
-                  </Stack>
-                </Center>
+                <Stack sx={{ width: "100%", padding: "2rem" }}>
+                  <TextInput
+                    label="Name"
+                    placeholder="Aspen Collins"
+                    {...form.getInputProps("name")}
+                  />
+                  <TextInput
+                    label="Email"
+                    placeholder="aspen@enterprise.com"
+                    {...form.getInputProps("email")}
+                  />
+                  <Textarea
+                    label="Message"
+                    placeholder="Your message"
+                    minRows={9}
+                    maxRows={9}
+                    {...form.getInputProps("message")}
+                  />
+                  <Button color="blue" variant="filled" type="submit">
+                    Submit
+                  </Button>
+                </Stack>
               </form>
             </Grid.Col>
           </Grid>

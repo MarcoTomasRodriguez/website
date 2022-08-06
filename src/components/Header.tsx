@@ -65,7 +65,7 @@ const Header = () => {
       {(styles) => (
         <CustomHeader style={styles}>
           <Center>
-            <Group spacing="xl">
+            <Group spacing={48}>
               {links.map(({ title, url, icon: Icon }, index) => (
                 <Link
                   key={index}
