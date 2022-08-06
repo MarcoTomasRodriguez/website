@@ -1,17 +1,17 @@
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { Center, Group, MediaQuery, Menu, Transition } from "@mantine/core";
-import {
-  BriefcaseIcon,
-  CodeIcon,
-  MailIcon,
-  TranslateIcon,
-  UserIcon,
-  SpeakerphoneIcon,
-} from "@heroicons/react/solid";
 import useScrollableHide from "../hooks/useScrollableHide";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import {
+  IconAt,
+  IconBriefcase,
+  IconCode,
+  IconLanguage,
+  IconSpeakerphone,
+  IconUser,
+} from "@tabler/icons";
 
 const CustomHeader = styled.header`
   position: fixed;
@@ -48,11 +48,11 @@ const Header = () => {
   ];
 
   const links = [
-    { title: t("header.about"), url: "#about", icon: UserIcon },
-    { title: t("header.experience"), url: "#experience", icon: BriefcaseIcon },
-    { title: t("header.projects"), url: "#projects", icon: CodeIcon },
-    { title: t("header.languages"), url: "#languages", icon: SpeakerphoneIcon },
-    { title: t("header.contact"), url: "#contact", icon: MailIcon },
+    { title: t("header.about"), url: "#about", icon: IconUser },
+    { title: t("header.experience"), url: "#experience", icon: IconBriefcase },
+    { title: t("header.projects"), url: "#projects", icon: IconCode },
+    { title: t("header.languages"), url: "#languages", icon: IconSpeakerphone },
+    { title: t("header.contact"), url: "#contact", icon: IconAt },
   ];
 
   return (
@@ -84,7 +84,7 @@ const Header = () => {
                       largerThan="sm"
                       styles={{ visibility: "hidden", width: 0, height: 0 }}
                     >
-                      <Icon width={20} height={20} viewBox="0 0 20 20" />
+                      <Icon width={20} height={20} />
                     </MediaQuery>
                   </CustomButton>
                 </Link>
@@ -102,11 +102,7 @@ const Header = () => {
                       largerThan="sm"
                       styles={{ visibility: "hidden", width: 0, height: 0 }}
                     >
-                      <TranslateIcon
-                        width={20}
-                        height={20}
-                        viewBox="0 0 20 20"
-                      />
+                      <IconLanguage width={20} height={20} />
                     </MediaQuery>
                   </CustomButton>
                 }

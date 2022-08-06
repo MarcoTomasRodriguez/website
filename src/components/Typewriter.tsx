@@ -1,4 +1,4 @@
-import React, { ComponentProps, useEffect, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 import { interval } from "rxjs";
 import { map, take } from "rxjs/operators";
 
@@ -7,7 +7,6 @@ type TypewriterProps = ComponentProps<"span"> & {
   delay?: number;
 };
 
-// TODO: Remove rxjs. Implement delay.
 const Typewriter = ({ children: text, ...props }: TypewriterProps) => {
   const [currentText, setCurrentText] = useState("");
   const [running, setRunning] = useState(true);
