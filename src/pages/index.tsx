@@ -83,7 +83,7 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
 
   useEffect(() => {
     const timeToPrintIntroduction = t("about.introduction").length * 60;
-    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 100);
+    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 300);
   }, [t]);
 
   const form = useForm<EmailForm>({
