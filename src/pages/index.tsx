@@ -210,14 +210,14 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
           <Space h="xl" />
           <Stack>
             {projects.map((project, index) => (
-              <Card shadow="sm" p={24}>
+              <Card key={index} shadow="sm" p={24}>
                 <Title order={3} mb={4}>
                   {project.title}
                 </Title>
                 <Text>{project.description}</Text>
                 <Group spacing={6} mt={12}>
                   {project.badges.map((badge, index) => (
-                    <Badge variant="outline" color={badge.color}>
+                    <Badge key={index} variant="outline" color={badge.color}>
                       {badge.text}
                     </Badge>
                   ))}
