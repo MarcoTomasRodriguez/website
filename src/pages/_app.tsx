@@ -1,11 +1,14 @@
 import type { AppProps } from "next/app";
+import { Roboto } from "@next/font/google";
 import { MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { appWithTranslation } from "next-i18next";
 import "../styles/globals.css";
 
+const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
+
 const theme: MantineThemeOverride = {
-  fontFamily: "Roboto, sans-serif",
+  fontFamily: `Roboto, sans-serif`,
   defaultRadius: "sm",
   colors: {
     blue: [
@@ -35,7 +38,7 @@ const theme: MantineThemeOverride = {
   },
   primaryColor: "blue",
   headings: {
-    fontFamily: "Roboto, sans-serif",
+    // fontFamily: "Roboto, sans-serif",
     sizes: {
       h1: { fontSize: "1.5rem", lineHeight: "2rem" },
       h2: { fontSize: "1.25rem", lineHeight: "1.75rem" },
@@ -46,11 +49,13 @@ const theme: MantineThemeOverride = {
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-      <NotificationsProvider>
-        <Component {...pageProps} />
-      </NotificationsProvider>
-    </MantineProvider>
+    <main className={roboto.className}>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+        <NotificationsProvider>
+          <Component {...pageProps} />
+        </NotificationsProvider>
+      </MantineProvider>
+    </main>
   );
 }
 

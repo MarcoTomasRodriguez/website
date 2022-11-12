@@ -28,7 +28,7 @@ import {
 } from "@tabler/icons";
 import type { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { showNotification } from "@mantine/notifications";
 import { useForm } from "@mantine/form";
@@ -78,13 +78,7 @@ type HomeProps = {
 
 const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
   const { t } = useTranslation("index");
-
   const [displayProfession, setDisplayProfession] = useState(false);
-
-  useEffect(() => {
-    const timeToPrintIntroduction = t("about.introduction").length * 60;
-    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 300);
-  }, [t]);
 
   const form = useForm<EmailForm>({
     initialValues: {
@@ -101,31 +95,39 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
     },
   });
 
-  const sendEmail = async ({ name, email, message }: EmailForm) => {
-    const response = await fetch("https://formspree.io/f/myybqbdp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, _replyto: email, message }),
-    });
+  useEffect(() => {
+    const timeToPrintIntroduction = t("about.introduction").length * 60;
+    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 300);
+  }, [t]);
 
-    if (!response.ok) {
-      showNotification({
-        title: "Error",
-        message: "Could not send email",
-        icon: <IconX size={18} />,
-        color: "red",
+  const sendEmail = useCallback(
+    async ({ name, email, message }: EmailForm) => {
+      const response = await fetch("https://formspree.io/f/myybqbdp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, _replyto: email, message }),
       });
-      return;
-    }
 
-    showNotification({
-      title: "Success",
-      message: "Email sent",
-      icon: <IconCheck size={18} />,
-      color: "teal",
-    });
-    form.reset();
-  };
+      if (!response.ok) {
+        showNotification({
+          title: "Error",
+          message: "Could not send email",
+          icon: <IconX size={18} />,
+          color: "red",
+        });
+        return;
+      }
+
+      showNotification({
+        title: "Success",
+        message: "Email sent",
+        icon: <IconCheck size={18} />,
+        color: "teal",
+      });
+      form.reset();
+    },
+    [form]
+  );
 
   return (
     <AppShell
@@ -227,15 +229,15 @@ const Home: NextPage<HomeProps> = ({ experience, projects, languages }) => {
                     <Divider mt={12} mb={12} />
                     <Group>
                       {project.websiteUrl && (
-                        <Link href={project.websiteUrl} passHref={true}>
-                          <Text size="sm" weight={700} component="a">
+                        <Link href={project.websiteUrl}>
+                          <Text size="sm" weight={700}>
                             Website
                           </Text>
                         </Link>
                       )}
                       {project.repositoryUrl && (
-                        <Link href={project.repositoryUrl} passHref={true}>
-                          <Text size="sm" weight={700} component="a">
+                        <Link href={project.repositoryUrl}>
+                          <Text size="sm" weight={700}>
                             Repository
                           </Text>
                         </Link>

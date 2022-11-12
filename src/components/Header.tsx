@@ -12,6 +12,7 @@ import {
   IconSpeakerphone,
   IconUser,
 } from "@tabler/icons";
+import { useMemo } from "react";
 
 const CustomHeader = styled.header`
   position: fixed;
@@ -21,7 +22,7 @@ const CustomHeader = styled.header`
   z-index: 50;
 `;
 
-const CustomButton = styled.button`
+const HeaderAction = styled.div`
   padding: 0.5rem;
   color: #fff;
   font-weight: 700;
@@ -35,6 +36,9 @@ const CustomButton = styled.button`
   }
 `;
 
+const HeaderLink = HeaderAction.withComponent(Link);
+const HeaderButton = HeaderAction.withComponent("button");
+
 const Header = () => {
   const router = useRouter();
   const { t } = useTranslation();
@@ -47,13 +51,24 @@ const Header = () => {
     { language: "Español", code: "es" },
   ];
 
-  const links = [
-    { title: t("header.about"), url: "#about", icon: IconUser },
-    { title: t("header.experience"), url: "#experience", icon: IconBriefcase },
-    { title: t("header.projects"), url: "#projects", icon: IconCode },
-    { title: t("header.languages"), url: "#languages", icon: IconSpeakerphone },
-    { title: t("header.contact"), url: "#contact", icon: IconAt },
-  ];
+  const links = useMemo(
+    () => [
+      { title: t("header.about"), url: "#about", icon: IconUser },
+      {
+        title: t("header.experience"),
+        url: "#experience",
+        icon: IconBriefcase,
+      },
+      { title: t("header.projects"), url: "#projects", icon: IconCode },
+      {
+        title: t("header.languages"),
+        url: "#languages",
+        icon: IconSpeakerphone,
+      },
+      { title: t("header.contact"), url: "#contact", icon: IconAt },
+    ],
+    [t]
+  );
 
   return (
     <Transition
@@ -67,31 +82,28 @@ const Header = () => {
           <Center>
             <Group spacing={48}>
               {links.map(({ title, url, icon: Icon }, index) => (
-                <Link
+                <HeaderLink
                   key={index}
                   href={url}
-                  passHref
                   aria-label={`Scroll to ${title}`}
                 >
-                  <CustomButton>
-                    <MediaQuery
-                      smallerThan="md"
-                      styles={{ visibility: "hidden", position: "absolute" }}
-                    >
-                      <span>{title}</span>
-                    </MediaQuery>
-                    <MediaQuery
-                      largerThan="sm"
-                      styles={{ visibility: "hidden", width: 0, height: 0 }}
-                    >
-                      <Icon width={20} height={20} />
-                    </MediaQuery>
-                  </CustomButton>
-                </Link>
+                  <MediaQuery
+                    smallerThan="md"
+                    styles={{ visibility: "hidden", position: "absolute" }}
+                  >
+                    <span>{title}</span>
+                  </MediaQuery>
+                  <MediaQuery
+                    largerThan="sm"
+                    styles={{ visibility: "hidden", width: 0, height: 0 }}
+                  >
+                    <Icon width={20} height={20} />
+                  </MediaQuery>
+                </HeaderLink>
               ))}
-              <Menu
-                control={
-                  <CustomButton>
+              <Menu>
+                <Menu.Target>
+                  <HeaderButton>
                     <MediaQuery
                       smallerThan="md"
                       styles={{ visibility: "hidden", position: "absolute" }}
@@ -104,18 +116,20 @@ const Header = () => {
                     >
                       <IconLanguage width={20} height={20} />
                     </MediaQuery>
-                  </CustomButton>
-                }
-              >
-                {languages.map((lang, index) => (
-                  <Menu.Item
-                    key={index}
-                    className="w-full px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
-                    onClick={() => router.push("", "", { locale: lang.code })}
-                  >
-                    {lang.language}
-                  </Menu.Item>
-                ))}
+                  </HeaderButton>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  {/* Migrate to mantine */}
+                  {languages.map((lang, index) => (
+                    <Menu.Item
+                      key={index}
+                      className="w-full px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
+                      onClick={() => router.push("", "", { locale: lang.code })}
+                    >
+                      {lang.language}
+                    </Menu.Item>
+                  ))}
+                </Menu.Dropdown>
               </Menu>
             </Group>
           </Center>
