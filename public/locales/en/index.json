@@ -7,8 +7,8 @@
     "title": "Professional Experience",
     "content": [
       {
-        "years": "Oct 2020 - Present",
-        "title": "Backend Software Engineer",
+        "years": "Oct 2020 - Jun 2022",
+        "title": "Software Engineer",
         "company": "BlueSensor",
         "logo": "/img/bluesensor-logo.png",
         "points": [
@@ -81,11 +81,22 @@
       },
       {
         "language": "English",
-        "level": "Proficiency - C2"
+        "level": "Proficiency"
       },
       {
         "language": "German",
         "level": "Upper Intermediate - B2"
+      }
+    ]
+  },
+  "recommendations": {
+    "title": "Recommendations",
+    "content": [
+      {
+        "name": "Branny J. Chito",
+        "title": "CEO & Co-Founder at Bluesensor | IoT, AI and Data enthusiast",
+        "text": "Some of the most important characteristics were high responsibility, professionalism, project management, formal documentation, good handling of Linux, multidisciplinary knowledge, and above all research skills.",
+        "source": "https://www.linkedin.com/in/marcotomasrodriguez/"
       }
     ]
   },
