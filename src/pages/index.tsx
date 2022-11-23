@@ -58,9 +58,11 @@ const Home: NextPage<HomeProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = "en" }) => {
-  // TODO: Read with fs.
   const translations = JSON.parse(
-    fs.readFileSync(path.join("public/locales", locale, "index.json"), "utf-8")
+    fs.readFileSync(
+      path.join(process.cwd(), "public/locales", locale, "index.json"),
+      "utf-8"
+    )
   );
 
   return {
