@@ -48,7 +48,6 @@ const Header = () => {
   const languages = [
     { language: "English", code: "en" },
     { language: "Deutsch", code: "de" },
-    { language: "Español", code: "es" },
   ];
 
   const links = useMemo(
