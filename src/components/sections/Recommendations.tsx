@@ -24,7 +24,7 @@ const Recommendations = ({ title, recommendations }: RecommendationsProps) => {
             <Title order={3}>{recommendation.name}</Title>
             <Text size="sm">{recommendation.title}</Text>
             <Text mt={8} italic>
-              "{recommendation.text}"
+              &quot;{recommendation.text}&quot;
             </Text>
             <Text mt={8}>
               <b>Source:</b>&nbsp;
