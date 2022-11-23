@@ -17,8 +17,8 @@ const Languages = ({ title, languages }: LanguageProps) => {
       <Space h="xl" />
       <Grid>
         {languages.map((language, index) => (
-          <Grid.Col sm={12} md={4}>
-            <Card key={index} shadow="sm" p={24}>
+          <Grid.Col key={index} sm={12} md={4}>
+            <Card shadow="sm" p={24}>
               <Title order={3} mb={4}>
                 {language.language}
               </Title>
