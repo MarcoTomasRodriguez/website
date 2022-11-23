@@ -13,8 +13,12 @@ const About = ({ introduction, profession }: AboutProps) => {
   const [displayProfession, setDisplayProfession] = useState(false);
 
   useEffect(() => {
+    // Hide profession.
+    setDisplayProfession(false);
+
+    // Display profession once the introduction loads.
     const timeToPrintIntroduction = introduction.length * 60;
-    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 300);
+    setTimeout(() => setDisplayProfession(true), timeToPrintIntroduction + 150);
   }, [introduction]);
 
   return (
