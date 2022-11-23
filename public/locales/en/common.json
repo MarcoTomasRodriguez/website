@@ -3,10 +3,9 @@
     "about": "About",
     "experience": "Experience",
     "projects": "Projects",
-    "articles": "Articles",
-    "contact": "Contact Me",
     "languages": "Languages",
     "recommendations": "Recommendations",
+    "contact": "Contact",
     "changeLanguage": "Change language"
   }
 }

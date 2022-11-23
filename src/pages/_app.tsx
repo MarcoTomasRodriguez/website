@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { Inter, Roboto } from "@next/font/google";
+import { Roboto } from "@next/font/google";
 import { MantineProvider, MantineThemeOverride } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { appWithTranslation } from "next-i18next";

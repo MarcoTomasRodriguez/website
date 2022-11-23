@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { useCallback } from "react";
 import {
   Box,
   Center,
@@ -20,8 +22,6 @@ import {
   IconMail,
   IconX,
 } from "@tabler/icons";
-import Link from "next/link";
-import { useCallback } from "react";
 
 type EmailForm = {
   name: string;

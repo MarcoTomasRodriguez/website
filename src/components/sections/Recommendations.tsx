@@ -1,5 +1,5 @@
-import { Box, Card, Space, Stack, Text, Title } from "@mantine/core";
 import Link from "next/link";
+import { Box, Card, Space, Stack, Text, Title } from "@mantine/core";
 
 export type Recommendation = {
   name: string;

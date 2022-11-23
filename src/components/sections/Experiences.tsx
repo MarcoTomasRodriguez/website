@@ -1,3 +1,4 @@
+import type { BadgeProps } from "@typeDefs/badge";
 import {
   Badge,
   Box,
@@ -10,7 +11,6 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { BadgeProps } from "../../types/badge";
 
 export type Experience = {
   title: string;

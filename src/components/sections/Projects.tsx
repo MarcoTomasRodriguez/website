@@ -10,7 +10,7 @@ import {
   Title,
 } from "@mantine/core";
 import Link from "next/link";
-import { BadgeProps } from "../../types/badge";
+import { BadgeProps } from "@typeDefs/badge";
 
 export type Project = {
   title: string;

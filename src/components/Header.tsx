@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Center, Group, MediaQuery, Menu, Transition } from "@mantine/core";
-import useScrollableHide from "../hooks/useScrollableHide";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import {
@@ -12,7 +12,7 @@ import {
   IconSpeakerphone,
   IconUser,
 } from "@tabler/icons";
-import { useMemo } from "react";
+import useScrollableHide from "@hooks/useScrollableHide";
 
 const CustomHeader = styled.header`
   position: fixed;
@@ -63,6 +63,11 @@ const Header = () => {
       {
         title: t("header.languages"),
         url: "#languages",
+        icon: IconSpeakerphone,
+      },
+      {
+        title: t("header.recommendations"),
+        url: "#recommendations",
         icon: IconSpeakerphone,
       },
       { title: t("header.contact"), url: "#contact", icon: IconAt },

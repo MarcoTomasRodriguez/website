@@ -1,8 +1,8 @@
-import { ActionIcon, Box, Center, Stack, Title } from "@mantine/core";
-import { IconArrowDown } from "@tabler/icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Typewriter from "../Typewriter";
+import { ActionIcon, Box, Center, Stack, Title } from "@mantine/core";
+import { IconArrowDown } from "@tabler/icons";
+import Typewriter from "@components/Typewriter";
 
 type AboutProps = {
   introduction: string;

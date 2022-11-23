@@ -1,17 +1,17 @@
-import { Divider, Stack } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import AppShell from "../components/AppShell";
-import Header from "../components/Header";
-import Projects, { Project } from "../components/sections/Projects";
-import Experiences, { Experience } from "../components/sections/Experiences";
-import Languages, { Language } from "../components/sections/Languages";
+import { Divider, Stack } from "@mantine/core";
+import AppShell from "@components/AppShell";
+import Header from "@components/Header";
+import Projects, { Project } from "@components/sections/Projects";
+import Experiences, { Experience } from "@components/sections/Experiences";
+import Languages, { Language } from "@components/sections/Languages";
 import Recommendations, {
   Recommendation,
-} from "../components/sections/Recommendations";
-import Contact from "../components/sections/Contact";
-import About from "../components/sections/About";
+} from "@components/sections/Recommendations";
+import Contact from "@components/sections/Contact";
+import About from "@components/sections/About";
 
 type HomeProps = {
   experience: Experience[];
@@ -57,9 +57,7 @@ const Home: NextPage<HomeProps> = ({
 
 export const getStaticProps: GetStaticProps = async ({ locale = "en" }) => {
   const translations = await (
-    await fetch(
-      `https://www.marcotomasrodriguez.com/locales/${locale}/index.json`
-    )
+    await fetch(`http://localhost:3000/locales/${locale}/index.json`)
   ).json();
 
   return {
