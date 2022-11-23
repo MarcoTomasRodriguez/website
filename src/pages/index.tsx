@@ -57,7 +57,9 @@ const Home: NextPage<HomeProps> = ({
 
 export const getStaticProps: GetStaticProps = async ({ locale = "en" }) => {
   const translations = await (
-    await fetch(`http://localhost:3000/locales/${locale}/index.json`)
+    await fetch(
+      `https://www.marcotomasrodriguez.com/locales/${locale}/index.json`
+    )
   ).json();
 
   return {
