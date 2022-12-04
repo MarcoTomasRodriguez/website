@@ -8,6 +8,7 @@ import {
   IconAt,
   IconBriefcase,
   IconCode,
+  IconFileText,
   IconLanguage,
   IconSpeakerphone,
   IconUser,
@@ -70,6 +71,11 @@ const Header = () => {
         icon: IconSpeakerphone,
       },
       { title: t("header.contact"), url: "#contact", icon: IconAt },
+      {
+        title: t("header.resume"),
+        url: "https://storage.googleapis.com/storage.marcotomasrodriguez.com/resume/Marco%20Tomas%20Rodriguez%20-%20Resume.pdf",
+        icon: IconFileText,
+      },
     ],
     [t]
   );
