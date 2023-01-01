@@ -19,8 +19,10 @@ const Layout = ({ title, description, header, children }: LayoutProps) => {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      {header}
-      {children}
+      <div style={{ overflowX: "hidden" }}>
+        {header}
+        {children}
+      </div>
     </>
   );
 };

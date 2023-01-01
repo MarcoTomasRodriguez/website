@@ -1,6 +1,6 @@
 {
   "about": {
-    "introduction": "Hey! Welcome, I'm Marco Tomás Rodríguez",
+    "introduction": "Hey! I'm Marco Tomás Rodríguez",
     "profession": "Software Engineer"
   },
   "experience": {
@@ -12,13 +12,10 @@
         "company": "Thinking Minds",
         "logo": "/img/thinking-minds-logo.png",
         "points": [
-          "Built backend services with Spring Boot, TimescaleDB/PostgreSQL and Redis following TDD practices.",
+          "Designed a flexible, cost-effective, and low-power IoT device with GNSS & LTE connectivity.",
+          "Implemented a reading ingestion backend system with analytics and reporting capabilities with Spring Boot, TimescaleDB/PostgreSQL and Redis.",
           "Set up highly available, fault tolerant infrastructure using GCP and Kubernetes.",
-          "Architected a reading ingestion system with analytics and reporting capabilities.",
-          "Worked with time-series and geographical information database systems (TimescaleDB / PostGIS).",
-          "Implemented CI/CD pipeline with GitHub Actions.",
-          "Designed a cost-effective low-power asset-tracking IoT device, including printed circuit boards and electrical schematics.",
-          "Developed firmware for ARM microcontrollers from Nordic Semiconductor."
+          "Worked with time-series and geographical information database systems."
         ],
         "badges": [
           { "text": "Java", "color": "orange" },
@@ -37,18 +34,14 @@
         "company": "BlueSensor",
         "logo": "/img/bluesensor-logo.png",
         "points": [
-          "Designed and implemented a modular, extensible and maintainable, event-driven backend architecture for an IoT device system.",
-          "Collaborated with other companies to develop an integration layer for third party backend services.",
-          "Designed a standard for internal batch processing APIs.",
-          "Improved the backend system's reliability and maintainability by applying consistent design patterns, increasing test coverage and writing documentation.",
+          "Designed and implemented an event-driven backend architecture for IoT devices.",
+          "Developed an integration layer for third-party backend services and collaborated with teams from other companies to achieve this.",
+          "Reduced the backend service's latency by 60% by optimizing regions in AWS.",
           "Implemented CI/CD pipelines with Gitlab CI for backend and firmware codebases including automated physical device tests.",
-          "Assisted firmware and frontend development teams to troubleshoot issues and propose solutions.",
-          "Reduced the backend service's latency by 60% by optimizing deployment regions.",
-          "Deployed and monitored backend infrastructure in AWS.",
-          "Led the development of an AI-based acoustic sensor IoT device that improves the resource’s control efficiency and increases the productivity up to 30%.",
-          "Built audio collection, processing and storage pipeline used to train a machine learning algorithm using AWS S3 buckets.",
-          "Engineered efficient edge-device audio processing pipelines with a 41x improvement with the preexistent version.",
-          "Built controller and task scheduling software for an AI-based acoustic sensor using Python and Linux."
+          "Led the development of an AI-based acoustic sensor that improves the resource's control efficiency and productivity up to 30%.",
+          "Built an audio collection, processing and storage pipeline used to train a machine learning algorithm using AWS S3 buckets.",
+          "Linearized execution time of a previously quadratic AI algorithm, achieving a 41x improvement in the quantity of data that could be measured.",
+          "Designed an algorithm to suggest feeding-curves based on historical water parameters."
         ],
         "badges": [
           { "text": "Javascript", "color": "yellow" },
@@ -89,7 +82,7 @@
       },
       {
         "language": "German",
-        "level": "Upper Intermediate - B2"
+        "level": "Working Proficiency (B2)"
       }
     ]
   },
