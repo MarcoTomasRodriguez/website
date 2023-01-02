@@ -7,11 +7,12 @@
     "title": "Berufserfahrung",
     "content": [
       {
-        "years": "Jul 2022 - Present",
+        "years": "Jul 2022 - Jan 2023",
         "title": "Software Engineer",
         "company": "Thinking Minds",
         "logo": "/img/thinking-minds-logo.png",
         "points": [
+          "A full-time personal project with two co-founders that was completed.",
           "Designed a flexible, cost-effective, and low-power IoT device with GNSS & LTE connectivity.",
           "Implemented a reading ingestion backend system with analytics and reporting capabilities with Spring Boot, TimescaleDB/PostgreSQL and Redis.",
           "Set up highly available, fault tolerant infrastructure using GCP and Kubernetes.",
@@ -25,7 +26,8 @@
           { "text": "PostgreSQL", "color": "blue" },
           { "text": "Redis", "color": "red" },
           { "text": "Docker", "color": "blue" },
-          { "text": "Kubernetes", "color": "blue" }
+          { "text": "Kubernetes", "color": "blue" },
+          { "text": "GCP", "color": "red" }
         ]
       },
       {
@@ -50,7 +52,25 @@
           { "text": "MongoDB", "color": "green" },
           { "text": "MQTT", "color": "green" },
           { "text": "Kafka", "color": "red" },
-          { "text": "Docker", "color": "blue" }
+          { "text": "Docker", "color": "blue" },
+          { "text": "AWS", "color": "orange" }
+        ]
+      },
+      {
+        "years": "Dec 2019 - Aug 2020",
+        "title": "Full-Stack Software Developer",
+        "company": "Freelance",
+        "logo": "/img/default-company.png",
+        "points": [
+          "Developed a package tour sales software for a travel agency and deployed it on GCP.",
+          "Developed a business management software for small and medium-sized businesses."
+        ],
+        "badges": [
+          { "text": "Typescript", "color": "blue" },
+          { "text": "Node.js", "color": "green" },
+          { "text": "React.js", "color": "blue" },
+          { "text": "Docker", "color": "blue" },
+          { "text": "GCP", "color": "red" }
         ]
       }
     ]
